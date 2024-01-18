@@ -49,6 +49,8 @@ func main() {
 		h3Averages := extractMetrics(reader)
 		// fmt.Println(*h3Averages)
 
+		fmt.Printf("Processing scenario: %d\n", scenario)
+
 		saveAverages(scenario, h2Averages, h3Averages, true)
 	}
 }
@@ -210,7 +212,7 @@ func saveAverages(scenario int, h2Averages *[]float64, h3Averages *[]float64, ig
 		data = append(data, row)
 
 		if averagesCount%repetitionsPerExperiments == 0 {
-			fmt.Println(averagesCount)
+			// fmt.Println(averagesCount)
 			experiment := averagesCount / repetitionsPerExperiments
 
 			csvFileName := fmt.Sprintf("c%d-p%d-averages.csv", scenario, experiment)
